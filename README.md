@@ -4,30 +4,36 @@ Consider a scheduling approach which is non pre-emptive similar to shortest job 
  solution :
    code :-
       
-      
-      #include<stdio.h>  
+      #include<stdio.h>
+#include<conio.h>
 
-void main()
-
-
+struct Process
 {
+	int process_id;
+	int burst_time;
+};
 
-    
-
-
-   int bt[20],p[20],wait[20],tat[20],i,j,n,total=0,pos,temp;
-
-   
-    float avg_wt,avg_tat;
-
-    
-       printf("Enter number of process:");
-
-      //enter no of process by your choice.
-     scanf("%d",&n);  
-
-   
-       printf("\nEnter Estimated Time:\n");
-
-    //enter estimated time .
+void sorting(struct Process temp[] ,  int n)
+{
+	int a;
+	int i , j ;
+	temp[n].burst_time=9999;
+	for(j= 0 ; j < n; j++)
+	{
+		for(i = 0 ; i<=j ; i++)
+		{
+			if(temp[i].burst_time > temp[i+1].burst_time)
+			{
+			a = temp[i+1].burst_time;
+			temp[i+1].burst_time = temp[i].burst_time;
+			temp[i].burst_time = a;
+			}
+		}
+	}
+	
 }
+
+
+     
+   
+
